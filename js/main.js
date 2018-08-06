@@ -2,7 +2,19 @@ window.addEventListener("load", init);
 
 // Global variables
 
-let time = 5;
+// Available difficulty modes
+
+const difficulty = {
+  easy: 6,
+  medium: 4,
+  hard: 2
+};
+
+// To change difficulty
+
+const currentDifficulty = difficulty.medium;
+
+let time = currentDifficulty;
 let score = 0;
 let isPlaying;
 
@@ -48,8 +60,11 @@ const words = [
 // Start Game
 
 function init() {
+  // Show number of seconds in UI
+  seconds.innerHTML = currentDifficulty;
   // Load a word from an array
   showWord(words);
+
   // Start matching word input
 
   wordInput.addEventListener("input", startMatch);
@@ -63,7 +78,19 @@ function init() {
 // Start match
 function startMatch() {
   if (matchWords()) {
-    console.log("MATCH!");
+    isPlaying = true;
+    time = currentDifficulty + 1;
+    showWord(words);
+    wordInput.value = "";
+    score++;
+  }
+
+  // If score is -1 then display 0
+
+  if (score === -1) {
+    scoreDisplay.innerHTML = 0;
+  } else {
+    scoreDisplay.innerHTML = score;
   }
 }
 
@@ -73,7 +100,7 @@ function matchWords() {
     message.innerHTML = "Correct!";
     return true;
   } else {
-    message.innerHTML = "";
+    message.innerHTML = "Type faster!";
     return false;
   }
 }
@@ -105,5 +132,6 @@ function countdown() {
 function checkStatus() {
   if (!isPlaying && time === 0) {
     message.innerHTML = "Game Over!";
+    score = -1;
   }
 }
