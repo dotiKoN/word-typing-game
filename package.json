@@ -2,15 +2,14 @@
   "name": "word-typing-game",
   "version": "1.0.0",
   "description": "Speed typing game in vanilla JS",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "deploy": "gh-pages -d dist"
   },
   "author": "Normantas Kirdeikis",
   "license": "MIT",
   "homepage": "https://dotikon.github.io/word-typing-game",
-  "dependencies": {},
-  "devDependencies": {
+  "Dependencies": {
     "gh-pages": "^1.2.0"
   }
 }
