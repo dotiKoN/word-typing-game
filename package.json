@@ -9,7 +9,8 @@
   "author": "Normantas Kirdeikis",
   "license": "MIT",
   "homepage": "https://dotikon.github.io/word-typing-game",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "gh-pages": "^1.2.0"
   }
 }
